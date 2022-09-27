@@ -1,0 +1,12 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": ["*.d.ts", "src/**/*"],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "types": ["vite-plugin-pages/client", "vite-plugin-vue-layouts/client"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
