@@ -1,11 +1,8 @@
 name: CI
 
 on:
-  push:
-    branches: master
   pull_request:
     branches: master
-  workflow_dispatch:
 
 jobs:
   test:
@@ -20,12 +17,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "16.x"
-          cache: "pnpm"
+          node-version: 16.x
+          cache: pnpm
 
       - name: Install deps
         run: pnpm install
-        
+
       - name: Test
         run: pnpm run test:coverage
 
@@ -41,12 +38,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "16.x"
-          cache: "pnpm"
+          node-version: 16.x
+          cache: pnpm
 
       - name: Install deps
         run: pnpm install
-        
+
       - name: Lint
         run: pnpm run lint
 
@@ -62,11 +59,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "16.x"
-          cache: "pnpm"
+          node-version: 16.x
+          cache: pnpm
 
       - name: Install deps
         run: pnpm install
-        
+
       - name: Type check
         run: pnpm run type-check
