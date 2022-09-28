@@ -1,7 +1,6 @@
 {
-  "name": "schnell",
-  "version": "0.0.0",
   "type": "module",
+  "private": "true",
   "packageManager": "pnpm@7.9.0",
   "scripts": {
     "dev": "vite",
@@ -10,8 +9,8 @@
     "test:unit": "vitest",
     "test:coverage": "vitest run --coverage",
     "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "lint": "eslint . --fix --ignore-path .gitignore",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -27,6 +26,7 @@
     "@pinia/testing": "^0.0.14",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/vue": "^6.6.1",
+    "@types/jsdom": "^20.0.0",
     "@types/node": "^16.11.56",
     "@types/testing-library__jest-dom": "^5.14.5",
     "@vitejs/plugin-vue": "^3.0.3",
@@ -47,13 +47,13 @@
     "vitest": "^0.23.0",
     "vue-tsc": "^0.40.7"
   },
+  "lint-staged": {
+    "*.{vue,ts,tsx,js,jsx}": "pnpm run lint"
+  },
   "eslintConfig": {
     "extends": "@antfu"
   },
   "commitlint": {
     "extends": "@commitlint/config-conventional"
-  },
-  "lint-staged": {
-    "*.{vue,ts,tsx,js,jsx}": "pnpm run lint"
   }
 }
